@@ -1,0 +1,18 @@
+﻿@{
+    var CurrentReq = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    dynamic Layout;
+
+    switch (CurrentReq)
+    {
+        case "Home":
+            Layout = "~/Views/Shared/_LayoutPage.cshtml";
+            break;
+        case "Overview":
+            Layout = "~/Views/Shared/_OverviewLayoutPage.cshtml";
+            break;
+        default:
+            //Default layout
+            Layout = "~/Views/Shared/_DefaultLayoutPage.cshtml";
+            break;
+    }
+}
